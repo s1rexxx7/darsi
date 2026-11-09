@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
-<script>document.documentElement.classList.add("js")</script>
+<script>document.documentElement.classList.add("js");
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+addEventListener("pageshow", function(){ if (!location.hash) { document.documentElement.style.scrollBehavior = "auto"; scrollTo(0, 0); document.documentElement.style.scrollBehavior = ""; } });</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Груминг-салон</title>
 <meta name="description" content="Груминг для собак и кошек: стрижка, мытьё, тримминг. Онлайн-запись.">

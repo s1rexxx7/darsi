@@ -50,6 +50,9 @@ header{position:sticky;top:0;z-index:20;background:rgba(251,247,241,.92);backdro
 @media(min-width:860px){.hero-grid{grid-template-columns:1.1fr .9fr}.hero{padding:64px 0}}
 .badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
 .stars{color:#f2a33a;letter-spacing:1px}
+.rating{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;color:var(--muted);font-size:15px}
+.rating .stars{font-size:16px;letter-spacing:2px}
+.rating b{color:var(--ink);font-family:Lora,Georgia,serif;font-size:19px;font-weight:600;margin-right:2px}
 .hero h1{font-size:clamp(34px,7vw,58px);margin:16px 0 14px}
 .hero h1 em{font-style:italic;font-weight:500;color:var(--accent)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
@@ -57,6 +60,8 @@ header{position:sticky;top:0;z-index:20;background:rgba(251,247,241,.92);backdro
 .hero-art{background:#b9a3d6;border-radius:32px;aspect-ratio:4/5;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .hero-art img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-art svg{position:absolute;inset:0;width:100%;height:100%}
+.hero-caption{margin-top:12px;font-family:Lora,Georgia,serif;font-style:italic;color:var(--muted);font-size:15px}
+.cta-note{margin-top:12px;color:var(--muted);font-size:14px}
 .hero-card{position:absolute;left:16px;bottom:16px;right:16px;background:#fff;border-radius:18px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
 .hero-card b{display:block;font-size:15px}
 .hero-card small{color:var(--muted);font-size:13px}
@@ -73,9 +78,10 @@ header{position:sticky;top:0;z-index:20;background:rgba(251,247,241,.92);backdro
 .about-list p{color:var(--muted);font-size:15px}
 
 /* prices */
-.size-switch{display:flex;gap:24px;overflow-x:auto;border-bottom:1px solid var(--line);margin:22px 0 2px;scrollbar-width:none}
+.size-switch{position:relative;display:flex;gap:24px;overflow-x:auto;border-bottom:1px solid var(--line);margin:22px 0 2px;scrollbar-width:none}
 .size-switch button{background:none;border:0;padding:12px 0 11px;font:600 15px "Golos Text",sans-serif;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;cursor:pointer}
-.size-switch button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--accent)}
+.size-switch button[aria-selected=true]{color:var(--ink)}
+.size-ind{position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--accent);border-radius:2px;transition:transform .45s cubic-bezier(.22,.8,.24,1),width .45s cubic-bezier(.22,.8,.24,1)}
 .menu{list-style:none;max-width:680px}
 .price-wrap{max-width:680px}
 .menu li{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;padding:17px 0 16px;border-bottom:1px solid var(--line);cursor:pointer}
@@ -112,10 +118,14 @@ form{display:grid;gap:12px;margin-top:22px}
 @media(min-width:860px){form{margin-top:0}}
 label{font-size:14px;font-weight:600;color:rgba(255,255,255,.85);display:grid;gap:6px}
 input,select,textarea{width:100%;border:0;border-radius:14px;padding:14px 16px;font:500 16px "Golos Text",sans-serif;background:#fff;color:var(--ink)}
-.row2{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.row2{display:grid;gap:12px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.row2>label{min-width:0}
+input,select{min-width:0;max-width:100%}
+input[type=date]{-webkit-appearance:none;appearance:none;min-height:50px;text-align:left}
+input[type=date]::-webkit-date-and-time-value{text-align:left}
 .sizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:8px}
 .sizes input{position:absolute;opacity:0;pointer-events:none}
-.sizes label{background:rgba(255,255,255,.1);border:2px solid transparent;border-radius:14px;padding:12px 6px;text-align:center;cursor:pointer;color:#fff;display:block}
+.sizes label{transition:background-color .3s,border-color .3s,transform .3s cubic-bezier(.22,.8,.24,1);background:rgba(255,255,255,.1);border:2px solid transparent;border-radius:14px;padding:12px 6px;text-align:center;cursor:pointer;color:#fff;display:block}
 .sizes label small{display:block;font-weight:500;opacity:.7;font-size:12px}
 .sizes input:checked+label{border-color:var(--accent);background:rgba(255,255,255,.2)}
 .sizes input:focus-visible+label{outline:2px solid #fff}
@@ -159,7 +169,7 @@ footer{padding:28px 0 36px;color:var(--muted);font-size:13px;text-align:center}
   .js .rv-img.in{opacity:1;transform:none}
   .hero-art img{animation:heroZoom 2.2s cubic-bezier(.22,.8,.24,1) both}
   @keyframes heroZoom{from{transform:scale(1.1)}to{transform:scale(1)}}
-  .hero-card{animation:riseIn .9s .9s cubic-bezier(.22,.8,.24,1) both}
+  .hero-caption{animation:riseIn .9s .8s cubic-bezier(.22,.8,.24,1) both}
   @keyframes riseIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
   .dot{animation:pulse 2.4s ease-in-out infinite}
   @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(47,125,91,.35)}50%{box-shadow:0 0 0 7px rgba(47,125,91,0)}}
@@ -176,6 +186,10 @@ footer{padding:28px 0 36px;color:var(--muted);font-size:13px;text-align:center}
   .review:hover{transform:translateY(-3px)}
   .map img{transition:transform .8s cubic-bezier(.22,.8,.24,1)}
   .map:hover img{transform:scale(1.03)}
+  .sizes input:checked+label{animation:pop .45s cubic-bezier(.22,.8,.24,1)}
+  @keyframes pop{0%{transform:scale(.94)}60%{transform:scale(1.04)}100%{transform:none}}
+  select.flash,input.flash{animation:flash .7s ease}
+  @keyframes flash{0%{box-shadow:0 0 0 0 rgba(255,255,255,.0)}30%{box-shadow:0 0 0 4px rgba(255,255,255,.35)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
   .booking-ok.show{animation:riseIn .6s cubic-bezier(.22,.8,.24,1) both}
   .sticky-cta{animation:slideUp .7s 1.2s cubic-bezier(.22,.8,.24,1) both}
   @keyframes slideUp{from{transform:translateY(110%)}to{transform:none}}
@@ -203,13 +217,14 @@ footer{padding:28px 0 36px;color:var(--muted);font-size:13px;text-align:center}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="badge" id="ratingBadge"><span class="stars">★★★★★</span> <span data-k="rating"></span> из 5, <span data-k="reviewsCount"></span> <span class="rv-word">отзывов</span> в <span data-k="ratingSource">2ГИС</span></span>
+      <div class="rating" id="ratingBadge"><span class="stars" aria-hidden="true">★★★★★</span><span><b data-k="rating"></b> по <span data-k="reviewsCount"></span> <span class="rv-word2">отзывам</span> в <span data-k="ratingSource">2ГИС</span></span></div>
       <h1>Груминг, после которого питомец <em>доволен</em>, а вы спокойны</h1>
       <p class="lead" data-k="tagline"></p>
       <div class="hero-actions">
         <a class="btn btn-accent" href="#booking">Записаться онлайн</a>
         <a class="btn btn-ghost" href="#prices">Смотреть цены</a>
       </div>
+      <p class="cta-note">Заявка с сайта сразу приходит администратору в WhatsApp</p>
       <div class="hero-meta"><span><span data-k="address"></span>, <span data-k="city"></span></span><span data-k="hours"></span></div>
     </div>
     <div class="hero-art" id="heroArt">
@@ -230,8 +245,8 @@ footer{padding:28px 0 36px;color:var(--muted);font-size:13px;text-align:center}
         </g>
         <g fill="#fff" opacity=".85"><circle cx="70" cy="90" r="6"/><circle cx="96" cy="64" r="4"/><circle cx="340" cy="300" r="5"/><circle cx="312" cy="330" r="3"/></g>
       </svg>
-      <div class="hero-card"><span class="dot"></span><div><b>Онлайн-запись без звонков</b><small>Заявка приходит администратору в WhatsApp</small></div></div>
     </div>
+      <p class="hero-caption" id="heroCaption" hidden></p>
   </div>
 </section>
 
@@ -365,6 +380,7 @@ const S = /*__SALON_DATA__*/{
  "lon": 37.695696,
  "demo": true,
  "heroImage": "img/d13.jpg",
+ "heroCaption": "Наш гость после груминга. Все фото сняты у нас в салоне.",
  "aboutImage": "img/d16.jpg",
  "features": [
   [
@@ -534,8 +550,9 @@ const S = /*__SALON_DATA__*/{
   document.querySelectorAll(".rv-word").forEach(e => e.textContent = one ? "отзыв" : few ? "отзыва" : "отзывов");
   document.querySelectorAll(".rv-word2").forEach(e => e.textContent = one ? "отзыву" : "отзывам");
 
+  if (S.heroCaption) { $("#heroCaption").textContent = S.heroCaption; $("#heroCaption").hidden = false; }
   if (S.heroImage) {
-    $("#heroArt").innerHTML = '<img src="'+esc(S.heroImage)+'" alt="'+esc(S.name)+'">' + $("#heroArt .hero-card").outerHTML;
+    $("#heroArt").innerHTML = '<img src="'+esc(S.heroImage)+'" alt="'+esc(S.name)+'">';
   }
 
   // about
@@ -547,13 +564,17 @@ const S = /*__SALON_DATA__*/{
   const tabs = $("#priceTabs"), list = $("#priceList");
   function showCat(i){
     tabs.querySelectorAll("button").forEach((t,j)=>t.setAttribute("aria-selected", i===j));
+    const b = tabs.querySelectorAll("button")[i], ind = tabs.querySelector(".size-ind");
+    if (b && ind) { ind.style.width = b.offsetWidth + "px"; ind.style.transform = "translateX(" + b.offsetLeft + "px)"; b.scrollIntoView({block:"nearest", inline:"nearest", behavior:"smooth"}); }
     list.classList.remove("swap"); void list.offsetWidth; list.classList.add("swap");
     list.innerHTML = S.prices[cats[i]].map(([n,d,p],k) =>
       '<li style="--i:'+k+'" data-pick="'+i+'|'+esc(n)+'"><span class="m-name">'+esc(n)+'</span><span class="m-dots"></span><span class="m-price">'+fmt(p)+'</span>'+(d?'<span class="m-desc">'+esc(d)+'</span>':'')+'</li>').join("");
   }
-  tabs.innerHTML = cats.map(c=>'<button type="button" role="tab">'+esc(c)+'</button>').join("");
+  tabs.innerHTML = cats.map(c=>'<button type="button" role="tab">'+esc(c)+'</button>').join("") + '<span class="size-ind" aria-hidden="true"></span>';
   tabs.querySelectorAll("button").forEach((t,i)=>t.onclick=()=>showCat(i));
   showCat(0);
+  addEventListener("resize", () => { const k=[...tabs.querySelectorAll("button")].findIndex(t=>t.getAttribute("aria-selected")==="true"); const b=tabs.querySelectorAll("button")[k], ind=tabs.querySelector(".size-ind"); if (b&&ind){ind.style.width=b.offsetWidth+"px"; ind.style.transform="translateX("+b.offsetLeft+"px)";} });
+  if (document.fonts) document.fonts.ready.then(() => dispatchEvent(new Event("resize")));
 
   // gallery
   if (S.gallery && S.gallery.length){
@@ -581,7 +602,9 @@ const S = /*__SALON_DATA__*/{
   }).join("");
   const sel = $("#serviceSelect");
   function fillServices(i){ sel.innerHTML = S.prices[cats[i]].map(([n,,p])=>'<option>'+esc(n)+', '+fmt(p)+'</option>').join(""); }
-  document.querySelectorAll('input[name=size]').forEach((r,i)=>r.onchange=()=>fillServices(i));
+  const flash = el => { el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); };
+  document.querySelectorAll('input[name=size]').forEach((r,i)=>r.onchange=()=>{ fillServices(i); flash(sel); });
+  sel.addEventListener("change", () => flash(sel));
   fillServices(0);
   document.addEventListener("click", e => {
     const a = e.target.closest("[data-pick]"); if (!a) return;
@@ -622,7 +645,7 @@ const S = /*__SALON_DATA__*/{
   const reveal = (sel, step, img) => document.querySelectorAll(sel).forEach((el, i) => {
     el.classList.add(img ? "rv-img" : "rv"); el.style.setProperty("--d", (step ? (i % 4) * step : 0) + "ms");
   });
-  [".hero .badge", ".hero h1", ".hero .lead", ".hero-actions", ".hero-meta"].forEach((sel, i) => {
+  [".hero .rating", ".hero h1", ".hero .lead", ".hero-actions", ".cta-note", ".hero-meta"].forEach((sel, i) => {
     const el = document.querySelector(sel); if (el) { el.classList.add("rv"); el.style.setProperty("--d", (i * 110) + "ms"); }
   });
   reveal(".hero-art", 0, true);

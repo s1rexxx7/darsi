@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Груминг-салон</title>
+<meta name="description" content="Груминг для собак и кошек: стрижка, мытьё, тримминг. Онлайн-запись.">
+<meta name="theme-color" content="#3d2c58">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf6fb; --surface:#ffffff; --ink:#261f2e; --muted:#6c6475; --line:#ebe1ee;
+  --brand:#3d2c58; --brand-ink:#ffffff; --accent:#a8559a; --accent-deep:#8e3f82; --accent-soft:#f4e4f1; --ok:#2f7d5b;
+  --radius:20px; --shadow:0 10px 30px rgba(31,42,41,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Golos Text",system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:84px}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+section{padding:56px 0}
+h1,h2,h3{line-height:1.12;letter-spacing:-.01em;font-family:Lora,Georgia,serif;font-weight:600}
+.feature h3,.step b{font-family:"Golos Text",sans-serif}
+h2{font-size:clamp(26px,4.4vw,38px);margin-bottom:8px}
+.lead{color:var(--muted);font-size:17px;max-width:620px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:15px 24px;font:700 16px "Golos Text",sans-serif;cursor:pointer;text-decoration:none;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-ghost{background:transparent;color:var(--brand);border:2px solid var(--brand)}
+.btn-white{background:#fff;color:var(--brand)}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(251,247,241,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-family:Lora,Georgia,serif;font-size:18px;text-decoration:none;min-width:0}
+.logo span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo-mark{width:36px;height:36px;border-radius:12px;background:var(--brand);display:grid;place-items:center;flex:none}
+.nav-links{display:none;gap:24px;font-weight:600;font-size:15px}
+.nav-links a{text-decoration:none;color:var(--muted)}
+.nav-phone{font-weight:700;text-decoration:none;white-space:nowrap;font-size:15px}
+@media(min-width:860px){.nav-links{display:flex}}
+
+/* hero */
+.hero{padding:36px 0 48px}
+.hero-grid{display:grid;gap:28px;align-items:center}
+@media(min-width:860px){.hero-grid{grid-template-columns:1.1fr .9fr}.hero{padding:64px 0}}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
+.stars{color:#f2a33a;letter-spacing:1px}
+.hero h1{font-size:clamp(34px,7vw,58px);margin:16px 0 14px}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--accent)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;color:var(--muted);font-size:14px;font-weight:600}
+.hero-art{background:#b9a3d6;border-radius:32px;aspect-ratio:4/5;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.hero-art img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%}
+.hero-card{position:absolute;left:16px;bottom:16px;right:16px;background:#fff;border-radius:18px;padding:14px 16px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow)}
+.hero-card b{display:block;font-size:15px}
+.hero-card small{color:var(--muted);font-size:13px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--ok);flex:none;box-shadow:0 0 0 5px rgba(47,125,91,.15)}
+
+/* about */
+.about{display:grid;gap:24px;margin-top:22px}
+@media(min-width:860px){.about{grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}}
+.about-photo{border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:var(--accent-soft);box-shadow:var(--shadow)}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.about-list{list-style:none;border-top:1px solid var(--line)}
+.about-list li{padding:18px 0 17px;border-bottom:1px solid var(--line)}
+.about-list h3{font-size:21px;margin-bottom:4px}
+.about-list p{color:var(--muted);font-size:15px}
+
+/* prices */
+.size-switch{display:flex;gap:24px;overflow-x:auto;border-bottom:1px solid var(--line);margin:22px 0 2px;scrollbar-width:none}
+.size-switch button{background:none;border:0;padding:12px 0 11px;font:600 15px "Golos Text",sans-serif;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;cursor:pointer}
+.size-switch button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--accent)}
+.menu{list-style:none;max-width:680px}
+.price-wrap{max-width:680px}
+.menu li{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;padding:17px 0 16px;border-bottom:1px solid var(--line);cursor:pointer}
+.menu .m-name{font-weight:600;font-size:17px}
+.menu .m-dots{flex:1;min-width:16px;border-bottom:2px dotted var(--line);transform:translateY(-4px)}
+.menu .m-price{font-family:Lora,Georgia,serif;font-size:19px;font-weight:600;white-space:nowrap}
+.menu .m-desc{flex-basis:100%;color:var(--muted);font-size:14px;margin-top:-6px}
+.menu li:hover .m-name{color:var(--accent-deep)}
+.note{color:var(--muted);font-size:13px;margin-top:14px}
+
+/* gallery */
+.gallery{display:grid;gap:10px;grid-template-columns:repeat(2,1fr);margin-top:22px}
+@media(min-width:860px){.gallery{grid-template-columns:repeat(4,1fr);gap:14px}}
+.gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;display:block}
+
+/* steps */
+.steps{list-style:none;margin-top:24px}
+.steps li{position:relative;padding:0 0 26px 32px}
+.steps li::before{content:"";position:absolute;left:4px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.steps li::after{content:"";position:absolute;left:10px;top:24px;bottom:2px;width:1px;background:var(--line)}
+.steps li:last-child{padding-bottom:0}
+.steps li:last-child::after{display:none}
+.steps b{display:block;font-family:Lora,Georgia,serif;font-size:21px;font-weight:600;margin-bottom:2px}
+.steps p{color:var(--muted);font-size:15px}
+@media(min-width:860px){.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}.steps li{padding:32px 0 0}.steps li::before{left:0;top:0}.steps li::after{left:22px;right:-22px;top:7px;bottom:auto;width:auto;height:1px}}
+
+/* booking */
+.booking{background:var(--brand);color:#fff;border-radius:32px;padding:32px 20px}
+@media(min-width:860px){.booking{padding:48px;display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}}
+.booking .lead{color:rgba(255,255,255,.75)}
+.booking h2{color:#fff}
+form{display:grid;gap:12px;margin-top:22px}
+@media(min-width:860px){form{margin-top:0}}
+label{font-size:14px;font-weight:600;color:rgba(255,255,255,.85);display:grid;gap:6px}
+input,select,textarea{width:100%;border:0;border-radius:14px;padding:14px 16px;font:500 16px "Golos Text",sans-serif;background:#fff;color:var(--ink)}
+.row2{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+.sizes{display:grid;grid-template-columns:repeat(auto-fit,minmax(72px,1fr));gap:8px}
+.sizes input{position:absolute;opacity:0;pointer-events:none}
+.sizes label{background:rgba(255,255,255,.1);border:2px solid transparent;border-radius:14px;padding:12px 6px;text-align:center;cursor:pointer;color:#fff;display:block}
+.sizes label small{display:block;font-weight:500;opacity:.7;font-size:12px}
+.sizes input:checked+label{border-color:var(--accent);background:rgba(255,255,255,.2)}
+.sizes input:focus-visible+label{outline:2px solid #fff}
+.booking-ok{display:none;background:rgba(255,255,255,.1);border-radius:18px;padding:20px;margin-top:12px}
+.booking-ok.show{display:block}
+.channels{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+
+/* reviews */
+.reviews{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:16px;margin:22px -16px 0;padding:0 16px 6px;scrollbar-width:none}
+.review{flex:0 0 86%;scroll-snap-align:start;background:var(--accent-soft);border-radius:26px;padding:26px 22px 22px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+@media(min-width:860px){.reviews{margin:22px 0 0;padding:0 0 6px}.review{flex-basis:calc(33.333% - 8px)}}
+.review p{font-family:Lora,Georgia,serif;font-size:19px;line-height:1.42}
+.review small{color:var(--muted);font-weight:600;font-size:14px}
+.more-link{display:inline-block;margin-top:16px;font-weight:600;color:var(--accent-deep);text-decoration:none}
+.swipe-hint{color:var(--muted);font-size:13px;margin-top:8px}
+@media(min-width:860px){.swipe-hint{display:none}}
+
+/* contacts */
+.contacts{display:grid;gap:14px;margin-top:24px}
+@media(min-width:860px){.contacts{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.card dl{display:grid;gap:14px}
+.card dt{color:var(--muted);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.card dd{font-size:17px;font-weight:600}
+.map{display:block;position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--accent-soft);text-decoration:none}
+.map img{width:100%;height:100%;min-height:260px;object-fit:cover;display:block}
+.map span{position:absolute;left:12px;bottom:12px;background:#fff;color:var(--ink);border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px;box-shadow:var(--shadow)}
+
+footer{padding:28px 0 36px;color:var(--muted);font-size:13px;text-align:center}
+.demo-bar{background:var(--accent-soft);color:#8a3a24;font-size:13px;font-weight:600;text-align:center;padding:8px 16px}
+
+/* sticky mobile CTA */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(251,247,241,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;gap:10px}
+.sticky-cta .btn{flex:1;padding:14px}
+@media(min-width:860px){.sticky-cta{display:none}body{padding-bottom:0}}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demoBar">Демо-версия сайта для «<span data-k="name"></span>». Фото и отзывы ваши, с Яндекс Карт. Цены примерные, поставим ваши.</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">
+      <span class="logo-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><ellipse cx="6" cy="9" rx="2.2" ry="2.8"/><ellipse cx="18" cy="9" rx="2.2" ry="2.8"/><ellipse cx="9.5" cy="5" rx="2.2" ry="2.8"/><ellipse cx="14.5" cy="5" rx="2.2" ry="2.8"/><path d="M12 11c-3.3 0-6 3.6-6 6.2 0 2 1.6 2.8 3.2 2.8 1.2 0 1.8-.6 2.8-.6s1.6.6 2.8.6c1.6 0 3.2-.8 3.2-2.8 0-2.6-2.7-6.2-6-6.2z"/></svg></span>
+      <span data-k="name"></span>
+    </a>
+    <nav class="nav-links"><a href="#prices">Цены</a><a href="#how">Как проходит</a><a href="#reviews">Отзывы</a><a href="#contacts">Контакты</a></nav>
+    <a class="nav-phone" data-href="tel" data-k="phone"></a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge" id="ratingBadge"><span class="stars">★★★★★</span> <span data-k="rating"></span> из 5, <span data-k="reviewsCount"></span> <span class="rv-word">отзывов</span> в <span data-k="ratingSource">2ГИС</span></span>
+      <h1>Груминг, после которого питомец <em>доволен</em>, а вы спокойны</h1>
+      <p class="lead" data-k="tagline"></p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="#booking">Записаться онлайн</a>
+        <a class="btn btn-ghost" href="#prices">Смотреть цены</a>
+      </div>
+      <div class="hero-meta"><span><span data-k="address"></span>, <span data-k="city"></span></span><span data-k="hours"></span></div>
+    </div>
+    <div class="hero-art" id="heroArt">
+      <svg viewBox="0 0 400 400" aria-hidden="true">
+        <circle cx="330" cy="70" r="120" fill="#2c5250"/>
+        <circle cx="60" cy="360" r="90" fill="#e8775a" opacity=".9"/>
+        <g transform="translate(200 205)">
+          <ellipse cx="0" cy="40" rx="92" ry="78" fill="#f4e9da"/>
+          <path d="M-88-40c-30 10-42 60-28 92 10 22 34 10 40-8 8-26 6-60-12-84z" fill="#c98b5c"/>
+          <path d="M88-40c30 10 42 60 28 92-10 22-34 10-40-8-8-26-6-60 12-84z" fill="#c98b5c"/>
+          <circle cx="0" cy="-10" r="86" fill="#f4e9da"/>
+          <circle cx="-30" cy="-22" r="9" fill="#1f2a29"/><circle cx="30" cy="-22" r="9" fill="#1f2a29"/>
+          <circle cx="-27" cy="-25" r="3" fill="#fff"/><circle cx="33" cy="-25" r="3" fill="#fff"/>
+          <ellipse cx="0" cy="12" rx="16" ry="11" fill="#1f2a29"/>
+          <path d="M-14 30q14 14 28 0" stroke="#1f2a29" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M-10 42q10 22 20 0z" fill="#e8775a"/>
+          <path d="M-46-92q46-34 92 0l-12 18q-34-20-68 0z" fill="#e8775a"/>
+        </g>
+        <g fill="#fff" opacity=".85"><circle cx="70" cy="90" r="6"/><circle cx="96" cy="64" r="4"/><circle cx="340" cy="300" r="5"/><circle cx="312" cy="330" r="3"/></g>
+      </svg>
+      <div class="hero-card"><span class="dot"></span><div><b>Онлайн-запись без звонков</b><small>Заявка приходит администратору в WhatsApp</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="padding-top:8px">
+  <div class="wrap about">
+    <div class="about-photo" id="aboutPhoto"><img id="aboutImg" alt="" loading="lazy"></div>
+    <div>
+      <h2>Почему к нам возвращаются</h2>
+      <ul class="about-list" id="aboutList" style="margin-top:18px"></ul>
+    </div>
+  </div>
+</section>
+
+<section id="prices">
+  <div class="wrap price-wrap">
+    <h2>Цены</h2>
+    <p class="lead">Выберите размер питомца. Итоговая цена зависит от состояния шерсти.</p>
+    <div class="size-switch" role="tablist" id="priceTabs"></div>
+    <ul class="menu" id="priceList"></ul>
+    <p class="note" id="priceNote">Цены ориентировочные. Точную стоимость мастер назовёт после осмотра. Нажмите на услугу, чтобы записаться.</p>
+  </div>
+</section>
+
+<section id="gallery" hidden style="padding-top:8px">
+  <div class="wrap">
+    <h2>Наши гости после груминга</h2>
+    <div class="gallery" id="galleryGrid"></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2>Как проходит визит</h2>
+    <ol class="steps">
+      <li><b>Запись онлайн</b><p>Выбираете услугу и время, мы подтверждаем в мессенджере.</p></li>
+      <li><b>Знакомство</b><p>Обсуждаем стрижку и особенности питомца.</p></li>
+      <li><b>Груминг</b><p>Мытьё, сушка, стрижка, когти и уши.</p></li>
+      <li><b>Забираете</b><p>Показываем результат и подсказываем, как ухаживать за шерстью дома.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="wrap">
+    <div class="booking">
+      <div>
+        <h2>Онлайн-запись</h2>
+        <p class="lead">Заполните форму. Заявка придёт администратору, и он подтвердит время в мессенджере.</p>
+      </div>
+      <div>
+        <form id="bookForm" novalidate>
+          <div>
+            <label style="margin-bottom:6px">Размер питомца</label>
+            <div class="sizes" id="sizeOpts"></div>
+          </div>
+          <label>Услуга<select name="service" id="serviceSelect"></select></label>
+          <div class="row2">
+            <label>Порода<input name="breed" placeholder="Шпиц" autocomplete="off"></label>
+            <label>Кличка<input name="pet" placeholder="Бони" autocomplete="off"></label>
+          </div>
+          <div class="row2">
+            <label>Дата<input type="date" name="date" required></label>
+            <label>Время<select name="time" id="timeSelect"></select></label>
+          </div>
+          <div class="row2">
+            <label>Ваше имя<input name="name" required autocomplete="given-name"></label>
+            <label>Телефон<input name="phone" type="tel" required autocomplete="tel" placeholder="+7"></label>
+          </div>
+          <button class="btn btn-accent" type="submit">Отправить заявку</button>
+        </form>
+        <div class="booking-ok" id="bookOk">
+          <b>Почти готово!</b>
+          <p style="opacity:.8;margin-top:4px">Отправьте заявку в удобный мессенджер, и администратор подтвердит время.</p>
+          <div class="channels" id="channels"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <h2>Отзывы</h2>
+    <p class="lead">Средняя оценка <b data-k="rating"></b> из 5 по <span data-k="reviewsCount"></span> <span class="rv-word2">отзывам</span> в <span data-k="ratingSource">2ГИС</span>.</p>
+    <div class="reviews" id="reviewList"></div>
+    <p class="swipe-hint">Листайте вбок, чтобы прочитать ещё</p>
+    <a class="more-link" id="reviewsMore" target="_blank" rel="noopener" hidden>Все отзывы →</a>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="wrap">
+    <h2>Контакты</h2>
+    <div class="contacts">
+      <div class="card">
+        <dl>
+          <div><dt>Адрес</dt><dd data-k="address"></dd></div>
+          <div><dt>Режим работы</dt><dd data-k="hours"></dd></div>
+          <div><dt>Телефон</dt><dd><a data-href="tel" data-k="phone"></a></dd></div>
+        </dl>
+        <div class="channels" id="contactChannels" style="margin-top:18px"></div>
+      </div>
+      <a class="map" id="map" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© <span id="year"></span> <span data-k="name"></span>, <span data-k="city"></span></div></footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-ghost" data-href="tel">Позвонить</a>
+  <a class="btn btn-accent" href="#booking">Записаться</a>
+</div>
+
+<script>
+/* Данные салона подставляет генератор (sites/build.py). Ниже — пример. */
+const S = /*__SALON_DATA__*/{
+ "name": "Дарси",
+ "city": "Москва",
+ "tagline": "Груминг-салон на Стромынке. Стрижём, моем и вычёсываем собак и кошек больше пяти лет. Находим подход даже к пугливым и пожилым питомцам.",
+ "address": "улица Стромынка, 15",
+ "hours": "Ежедневно 10:00–21:00",
+ "phone": "+7 967 248-80-13",
+ "whatsapp": "79672488013",
+ "telegram": "darcystrominka",
+ "rating": "5.0",
+ "reviewsCount": "252",
+ "ratingSource": "Яндекс Картах",
+ "lat": 55.794381,
+ "lon": 37.695696,
+ "demo": true,
+ "heroImage": "img/d13.jpg",
+ "aboutImage": "img/d16.jpg",
+ "features": [
+  [
+   "Опытные мастера",
+   "Лана, Ольга, Юлия и Елена. Знают стандарты пород и умеют работать с пугливыми и возрастными питомцами."
+  ],
+  [
+   "Бережный вычёс",
+   "После нашего вычеса шерсть не сыпется, а кожа остаётся без раздражения."
+  ],
+  [
+   "Без стресса",
+   "Один питомец на мастера, тихий фен и перерывы, если малыш устал."
+  ],
+  [
+   "Фото в нашей фотозоне",
+   "Каждого гостя после груминга фотографируем и присылаем вам снимки."
+  ]
+ ],
+ "mapPin": "pm2vvl",
+ "mapUrl": "https://yandex.ru/maps/org/darsi/1217822723/",
+ "reviewsUrl": "https://yandex.ru/maps/org/darsi/1217822723/reviews/",
+ "gallery": [
+  "img/d09.jpg",
+  "img/d12.jpg",
+  "img/d07.jpg",
+  "img/d19.jpg",
+  "img/d18.jpg",
+  "img/d06.jpg",
+  "img/d11.jpg",
+  "img/d17.jpg"
+ ],
+ "reviews": [
+  {
+   "author": "Мария В.",
+   "rating": 5,
+   "text": "Попробовали со своим коржом все грумерные в районе, эта лучшая. После вычеса шерсть не сыпется, кожа без ранок."
+  },
+  {
+   "author": "Елена С.",
+   "rating": 5,
+   "text": "Несколько лет ходим только в этот салон. Все мастера очень терпеливые и добрые. Это важно: нашему йорку 15 лет, он старенький и с характером."
+  },
+  {
+   "author": "Мария С.",
+   "rating": 5,
+   "text": "Чудесный небольшой салон, запись всегда оперативная и услуги очень качественные. Грумер Лана терпеливая, внимательная, трепетно относится к животным."
+  },
+  {
+   "author": "Vera V.",
+   "rating": 5,
+   "text": "Ходим мыть и чесать кота уже три года. Все мастера опытные, вежливые и хорошо относятся к питомцам. Однозначно рекомендую."
+  },
+  {
+   "author": "Мария П.",
+   "rating": 5,
+   "text": "Наш любимый салон! Вожу сюда двух корги. Всегда шикарный результат и отличное настроение. Ольге и Лане огромное спасибо!"
+  },
+  {
+   "author": "Юлия П.",
+   "rating": 5,
+   "text": "Максимально приятный коллектив, чувствуется, что люди любят животных. За 3 часа сделали нашего Барни таким красавцем."
+  }
+ ],
+ "prices": {
+  "Мини (до 5 кг)": [
+   [
+    "Комплекс",
+    "мытьё, сушка, стрижка, когти, уши",
+    2500
+   ],
+   [
+    "Гигиена",
+    "лапы, морда, интимная зона, когти",
+    1500
+   ],
+   [
+    "Мытьё + сушка",
+    "с вычёсыванием",
+    1800
+   ],
+   [
+    "Стрижка когтей",
+    "",
+    400
+   ]
+  ],
+  "Средние (5–15 кг)": [
+   [
+    "Комплекс",
+    "мытьё, сушка, стрижка, когти, уши",
+    3800
+   ],
+   [
+    "Тримминг",
+    "для жесткошёрстных пород",
+    4000
+   ],
+   [
+    "Экспресс-линька",
+    "удаление подшёрстка",
+    3200
+   ],
+   [
+    "Стрижка когтей",
+    "",
+    500
+   ]
+  ],
+  "Крупные (от 15 кг)": [
+   [
+    "Комплекс",
+    "мытьё, сушка, стрижка, когти, уши",
+    5500
+   ],
+   [
+    "Экспресс-линька",
+    "удаление подшёрстка",
+    4800
+   ],
+   [
+    "Мытьё + сушка",
+    "с вычёсыванием",
+    4000
+   ],
+   [
+    "Стрижка когтей",
+    "",
+    600
+   ]
+  ],
+  "Кошки": [
+   [
+    "Стрижка кошки",
+    "под машинку, «лев»",
+    3500
+   ],
+   [
+    "Мытьё + вычёс",
+    "",
+    2800
+   ],
+   [
+    "Стрижка когтей",
+    "",
+    500
+   ]
+  ]
+ }
+};
+
+(function(){
+  const $ = s => document.querySelector(s);
+  const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const telHref = "tel:" + String(S.phone||"").replace(/[^\d+]/g,"");
+  const fmt = n => typeof n === "number" ? "от " + n.toLocaleString("ru-RU") + " ₽" : esc(n);
+
+  document.title = "Груминг-салон «" + S.name + "», " + S.city;
+  if (!S.demo) $("#demoBar").hidden = true;
+  document.querySelectorAll("[data-k]").forEach(el => { const v = S[el.dataset.k]; if (v != null && v !== "") el.textContent = v; });
+  document.querySelectorAll("[data-href=tel]").forEach(el => el.href = telHref);
+  if (!S.rating) $("#ratingBadge").hidden = true;
+  $("#year").textContent = new Date().getFullYear();
+  const n = +S.reviewsCount || 0, m10 = n % 10, m100 = n % 100;
+  const one = m10 === 1 && m100 !== 11, few = m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14);
+  document.querySelectorAll(".rv-word").forEach(e => e.textContent = one ? "отзыв" : few ? "отзыва" : "отзывов");
+  document.querySelectorAll(".rv-word2").forEach(e => e.textContent = one ? "отзыву" : "отзывам");
+
+  if (S.heroImage) {
+    $("#heroArt").innerHTML = '<img src="'+esc(S.heroImage)+'" alt="'+esc(S.name)+'">' + $("#heroArt .hero-card").outerHTML;
+  }
+
+  // about
+  $("#aboutList").innerHTML = (S.features||[]).map(([t,d])=>'<li><h3>'+esc(t)+'</h3><p>'+esc(d)+'</p></li>').join("");
+  if (S.aboutImage) { $("#aboutImg").src = S.aboutImage; $("#aboutImg").alt = S.name; } else $("#aboutPhoto").hidden = true;
+
+  // prices
+  const cats = Object.keys(S.prices);
+  const tabs = $("#priceTabs"), list = $("#priceList");
+  function showCat(i){
+    tabs.querySelectorAll("button").forEach((t,j)=>t.setAttribute("aria-selected", i===j));
+    list.innerHTML = S.prices[cats[i]].map(([n,d,p]) =>
+      '<li data-pick="'+i+'|'+esc(n)+'"><span class="m-name">'+esc(n)+'</span><span class="m-dots"></span><span class="m-price">'+fmt(p)+'</span>'+(d?'<span class="m-desc">'+esc(d)+'</span>':'')+'</li>').join("");
+  }
+  tabs.innerHTML = cats.map(c=>'<button type="button" role="tab">'+esc(c)+'</button>').join("");
+  tabs.querySelectorAll("button").forEach((t,i)=>t.onclick=()=>showCat(i));
+  showCat(0);
+
+  // gallery
+  if (S.gallery && S.gallery.length){
+    $("#gallery").hidden = false;
+    $("#galleryGrid").innerHTML = S.gallery.map(u=>'<img loading="lazy" src="'+esc(u)+'" alt="Работа салона '+esc(S.name)+'">').join("");
+  }
+
+  // reviews
+  if (S.reviews && S.reviews.length){
+    $("#reviewList").innerHTML = S.reviews.map(r => '<div class="review"><p>«'+esc(r.text)+'»</p><small>'+esc(r.author)+'</small></div>').join("");
+    if (S.reviewsUrl) { $("#reviewsMore").href = S.reviewsUrl; $("#reviewsMore").textContent = "Все " + S.reviewsCount + " " + (one ? "отзыв" : few ? "отзыва" : "отзывов") + " в " + (S.ratingSource||"2ГИС") + " →"; $("#reviewsMore").hidden = false; }
+  } else $("#reviews").hidden = true;
+
+  // map
+  if (S.lat && S.lon){
+    const pt = S.lon+","+S.lat;
+    $("#map").href = S.mapUrl || ("https://yandex.ru/maps/?pt="+pt+"&z=17&l=map");
+    $("#map").innerHTML = '<img loading="lazy" alt="'+esc(S.address)+' на карте" src="https://static-maps.yandex.ru/1.x/?ll='+pt+'&z=16&l=map&size=650,450&scale=2&lang=ru_RU&pt='+pt+','+(S.mapPin||"pm2rdl")+'"><span>Открыть в Яндекс Картах</span>';
+  } else $("#map").hidden = true;
+
+  // booking form
+  $("#sizeOpts").innerHTML = cats.map((c,i)=>{
+    const [title, sub] = c.split(" (");
+    return '<input type="radio" name="size" id="sz'+i+'" value="'+esc(c)+'"'+(i===0?' checked':'')+'><label for="sz'+i+'">'+esc(title)+(sub?'<small>'+esc(sub.replace(")",""))+'</small>':'')+'</label>';
+  }).join("");
+  const sel = $("#serviceSelect");
+  function fillServices(i){ sel.innerHTML = S.prices[cats[i]].map(([n,,p])=>'<option>'+esc(n)+', '+fmt(p)+'</option>').join(""); }
+  document.querySelectorAll('input[name=size]').forEach((r,i)=>r.onchange=()=>fillServices(i));
+  fillServices(0);
+  document.addEventListener("click", e => {
+    const a = e.target.closest("[data-pick]"); if (!a) return;
+    if (a.tagName !== "A") document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+    const [i, name] = a.dataset.pick.split("|");
+    document.getElementById("sz"+i).checked = true; fillServices(+i);
+    [...sel.options].forEach(o => { if (o.text.startsWith(name)) o.selected = true; });
+  });
+  const times = []; for (let h=10; h<=20; h++) times.push(h+":00");
+  $("#timeSelect").innerHTML = times.map(t=>'<option>'+t+'</option>').join("");
+  const d = $('input[name=date]'); const today = new Date(); today.setMinutes(today.getMinutes()-today.getTimezoneOffset());
+  d.min = d.value = today.toISOString().slice(0,10);
+
+  function channelButtons(text){
+    const out = [];
+    if (S.whatsapp) out.push('<a class="btn btn-accent" target="_blank" rel="noopener" href="https://wa.me/'+S.whatsapp+'?text='+encodeURIComponent(text)+'">WhatsApp</a>');
+    if (S.telegram) out.push('<a class="btn btn-white" target="_blank" rel="noopener" href="https://t.me/'+esc(S.telegram.replace(/^@/,""))+'">Telegram</a>');
+    out.push('<a class="btn btn-white" href="'+telHref+'">Позвонить</a>');
+    return out.join("");
+  }
+  $("#contactChannels").innerHTML = channelButtons("Здравствуйте! Хочу записать питомца на груминг.").replace(/btn-white/g,"btn-ghost");
+
+  $("#bookForm").onsubmit = e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    if (!f.get("name") || !f.get("phone")) { alert("Укажите имя и телефон"); return; }
+    const text = "Здравствуйте! Заявка на груминг с сайта.\n" +
+      "Питомец: " + [f.get("size"), f.get("breed"), f.get("pet")].filter(Boolean).join(", ") + "\n" +
+      "Услуга: " + f.get("service") + "\n" +
+      "Когда: " + f.get("date").split("-").reverse().join(".") + " в " + f.get("time") + "\n" +
+      "Имя: " + f.get("name") + ", тел.: " + f.get("phone");
+    $("#channels").innerHTML = channelButtons(text);
+    $("#bookOk").classList.add("show");
+    $("#bookOk").scrollIntoView({behavior:"smooth", block:"center"});
+  };
+})();
+</script>
+</body>
+</html>

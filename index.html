@@ -601,8 +601,16 @@ const S = /*__SALON_DATA__*/{
     return '<input type="radio" name="size" id="sz'+i+'" value="'+esc(c)+'"'+(i===0?' checked':'')+'><label for="sz'+i+'">'+esc(title)+(sub?'<small>'+esc(sub.replace(")",""))+'</small>':'')+'</label>';
   }).join("");
   const sel = $("#serviceSelect");
-  function fillServices(i){ sel.innerHTML = S.prices[cats[i]].map(([n,,p])=>'<option>'+esc(n)+', '+fmt(p)+'</option>').join(""); }
   const flash = el => { el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); };
+
+  const PH = [["Шпиц","Бони"],["Корги","Арчи"],["Самоед","Грей"]];
+  const breedIn = document.querySelector('input[name=breed]'), petIn = document.querySelector('input[name=pet]');
+  function fillServices(i){
+    sel.innerHTML = S.prices[cats[i]].map(([n,,p])=>'<option>'+esc(n)+', '+fmt(p)+'</option>').join("");
+    const cat = /кош|кот/i.test(cats[i]);
+    const [b, n] = cat ? ["Британская", "Мурка"] : (PH[i] || PH[0]);
+    if (breedIn.placeholder !== b) { breedIn.placeholder = b; petIn.placeholder = n; flash(breedIn); flash(petIn); }
+  }
   document.querySelectorAll('input[name=size]').forEach((r,i)=>r.onchange=()=>{ fillServices(i); flash(sel); });
   sel.addEventListener("change", () => flash(sel));
   fillServices(0);

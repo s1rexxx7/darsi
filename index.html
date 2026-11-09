@@ -385,6 +385,7 @@ const S = /*__SALON_DATA__*/{
   ]
  ],
  "mapPin": "pm2vvl",
+ "mapImage": "img/map.png",
  "mapUrl": "https://yandex.ru/maps/org/darsi/1217822723/",
  "reviewsUrl": "https://yandex.ru/maps/org/darsi/1217822723/reviews/",
  "gallery": [
@@ -570,7 +571,7 @@ const S = /*__SALON_DATA__*/{
   if (S.lat && S.lon){
     const pt = S.lon+","+S.lat;
     $("#map").href = S.mapUrl || ("https://yandex.ru/maps/?pt="+pt+"&z=17&l=map");
-    $("#map").innerHTML = '<img loading="lazy" alt="'+esc(S.address)+' на карте" src="https://static-maps.yandex.ru/1.x/?ll='+pt+'&z=16&l=map&size=650,450&scale=2&lang=ru_RU&pt='+pt+','+(S.mapPin||"pm2rdl")+'"><span>Открыть в Яндекс Картах</span>';
+    $("#map").innerHTML = '<img alt="'+esc(S.address)+' на карте" src="'+esc(S.mapImage || ('https://static-maps.yandex.ru/1.x/?ll='+pt+'&z=16&l=map&size=650,450&scale=2&lang=ru_RU&pt='+pt+','+(S.mapPin||"pm2rdl")))+'"><span>Открыть в Яндекс Картах</span>';
   } else $("#map").hidden = true;
 
   // booking form

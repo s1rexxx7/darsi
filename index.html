@@ -562,16 +562,16 @@ const S = /*__SALON_DATA__*/{
   // prices
   const cats = Object.keys(S.prices);
   const tabs = $("#priceTabs"), list = $("#priceList");
-  function showCat(i){
+  function showCat(i, userClick){
     tabs.querySelectorAll("button").forEach((t,j)=>t.setAttribute("aria-selected", i===j));
     const b = tabs.querySelectorAll("button")[i], ind = tabs.querySelector(".size-ind");
-    if (b && ind) { ind.style.width = b.offsetWidth + "px"; ind.style.transform = "translateX(" + b.offsetLeft + "px)"; b.scrollIntoView({block:"nearest", inline:"nearest", behavior:"smooth"}); }
+    if (b && ind) { ind.style.width = b.offsetWidth + "px"; ind.style.transform = "translateX(" + b.offsetLeft + "px)"; if (userClick) tabs.scrollTo({left: Math.max(0, b.offsetLeft - 24), behavior: "smooth"}); }
     list.classList.remove("swap"); void list.offsetWidth; list.classList.add("swap");
     list.innerHTML = S.prices[cats[i]].map(([n,d,p],k) =>
       '<li style="--i:'+k+'" data-pick="'+i+'|'+esc(n)+'"><span class="m-name">'+esc(n)+'</span><span class="m-dots"></span><span class="m-price">'+fmt(p)+'</span>'+(d?'<span class="m-desc">'+esc(d)+'</span>':'')+'</li>').join("");
   }
   tabs.innerHTML = cats.map(c=>'<button type="button" role="tab">'+esc(c)+'</button>').join("") + '<span class="size-ind" aria-hidden="true"></span>';
-  tabs.querySelectorAll("button").forEach((t,i)=>t.onclick=()=>showCat(i));
+  tabs.querySelectorAll("button").forEach((t,i)=>t.onclick=()=>showCat(i, true));
   showCat(0);
   addEventListener("resize", () => { const k=[...tabs.querySelectorAll("button")].findIndex(t=>t.getAttribute("aria-selected")==="true"); const b=tabs.querySelectorAll("button")[k], ind=tabs.querySelector(".size-ind"); if (b&&ind){ind.style.width=b.offsetWidth+"px"; ind.style.transform="translateX("+b.offsetLeft+"px)";} });
   if (document.fonts) document.fonts.ready.then(() => dispatchEvent(new Event("resize")));
